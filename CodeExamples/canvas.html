@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function drawLine(){
+                var canvas = document.getElementById('canvas');
+                // to fetch a graphical context (pixel control)
+                var context = canvas.getContext('2d');
+                context.moveTo(0,0);
+                context.lineTo(500,700);
+                context.stroke();
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Draw Line" onclick="drawLine()"/>
+        <br/>
+        <canvas id="canvas" width="500" height="700" style="border: 1px solid BLACK;">
+            <!-- Fallback content if canvas is not supported -->
+        </canvas>
+
+
+    </body>
+</html>

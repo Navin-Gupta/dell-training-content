@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function saveInfo(){
+                // fetch local storage object
+                var db = window.localStorage;
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var contact = document.getElementById('contact').value;
+
+                // db.setItem(<key>,<value>);
+                db.setItem("name", name);
+                db.setItem("email", email);
+                db.setItem("contact", contact);
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li>
+                    <span>Enter name</span>
+                    <div><input id="name" type="text" required /></div>
+                </li>
+                <li>
+                    <span>Enter email</span>
+                    <div><input id="email" type="email" /></div>
+                </li>
+                <li>
+                    <span>Enter contact</span>
+                    <div><input id="contact" type="text" /></div>
+                </li>
+                <li>
+                    <input type="button" value="Save" onclick="saveInfo()"/>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

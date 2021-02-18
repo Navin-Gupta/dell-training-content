@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form id="frm" action="/add-user.do" method="GET">
+            <ul>
+                <li>
+                    <span>Enter name</span>
+                    <div><input type="text" id="" name="" required /></div>
+                </li>
+                <li>
+                    <span>Enter email</span>
+                    <div><input type="email" /></div>
+                </li>
+                <li>
+                    <span>Enter contact</span>
+                    <div><input type="text" /></div>
+                </li>
+                <li>
+                    <input type="submit" value="Savewithoutcheck" formnovalidate />
+                    <input type="submit" value="Save" />
+                    <input type="submit" formaction="/some-other-url.do" value="Check" />
+                    <input type="submit" formmethod="POST" value="PostSave" />
+                    <input type="submit" formenctype="multipart/form-data" value="Save File" />
+
+                </li>
+            </ul>
+        </form>
+    </body>
+</html>
