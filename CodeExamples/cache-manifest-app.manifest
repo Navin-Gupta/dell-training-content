@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+CACHE:
+offline-api.html
+cache-manifest-app.manifest
+css/mycss.css
+images/img1.png
+images/img2.png
+js/myscript.js
+
+FALLBACK:
+image/original.jpg image/fallback.jpg

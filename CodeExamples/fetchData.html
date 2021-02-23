@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function fetchInfo(){
+                // window.sessionStorage;
+                var db = window.localStorage;
+                var name = db.getItem('name');
+                var email = db.getItem('email');
+                var contact = db.getItem('contact');
+                var content = "<h2>NAME : " + name  + "</h2>" +
+                "<h2>EMAIL : " + email  + "</h2>" +
+                "<h2>CONTACT : " + contact  + "</h2>" ;
+                document.getElementById('info').innerHTML = content;
+                               
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Fetch" onclick="fetchInfo()"/>
+        <div id="info">
+
+        </div>
+    </body>
+</html>
