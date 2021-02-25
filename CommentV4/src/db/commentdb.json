@@ -1,0 +1,30 @@
+{
+    "comments":[
+        {
+            "id" : 1,
+            "author" : "First",
+            "body" : "First Comment-DB",
+            "tag" : "#good"
+        },
+        {
+            "id" : 2,
+            "author" : "Second",
+            "body" : "Second Comment-DB",
+            "tag" : "#informative"
+        },
+        {
+            "id" : 3,
+            "author" : "Third",
+            "body" : "Third Comment-DB",
+            "tag" : "#useful"
+        },
+        {
+            "id" : 4,
+            "author" : "Fourth",
+            "body" : "Fourth Comment-DB",
+            "tag" : "#extra"
+        }
+
+    ],
+    "users" : []
+}
