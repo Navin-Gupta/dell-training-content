@@ -20,8 +20,11 @@ public class OptionalEx {
 		// wrap data into optional
 		// Student student = Optional.ofNullable(customSupplier.get());
 		Optional<Student> student = Optional.ofNullable(null);
-		if(student.isPresent())
-			return student.map(Student :: getName);	// Optional<String>
+		/*if(student.isPresent())
+			return student.map(Student :: getName);	*/// Optional<String>
+		student.map(Student :: getName).orElse("Dummy");
+		student.map(Student :: getName).orElseGet(()-> "Dummy");
+		student.map(Student :: getName).orElseThrow(()-> new RuntimeException("Student not found!"));
 			// return student.map(stud -> stud.getName());	// Optional<String>
 		return Optional.empty();
 	}
