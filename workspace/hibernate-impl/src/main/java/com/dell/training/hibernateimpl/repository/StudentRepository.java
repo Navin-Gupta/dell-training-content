@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dell.training.hibernateimpl.entity.Course;
 import com.dell.training.hibernateimpl.entity.Passport;
 import com.dell.training.hibernateimpl.entity.Student;
 
@@ -40,5 +41,23 @@ public class StudentRepository {
 		
 		student.setName("FirstPro");
 		
+	}
+	
+	public void relateStudentAndCourse() {
+		Student student  = this.entityManager.find(Student.class, 1);
+		Course course1 = this.entityManager.find(Course.class, 1);
+		Course course2 = this.entityManager.find(Course.class, 2);
+		
+		student.addCourse(course1);
+		student.addCourse(course2);
+		
+		course1.addStudent(student);
+		course2.addStudent(student);
+	}
+	
+	public void fetchStudentWithAllCourses() {
+		Student student  = this.entityManager.find(Student.class, 1);
+		this.logger.info("Student : {}", student);
+		this.logger.info("Courses : {}", student.getCourses());
 	}
 }

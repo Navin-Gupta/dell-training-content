@@ -7,15 +7,20 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dell.training.hibernateimpl.entity.Course;
+import com.dell.training.hibernateimpl.entity.Review;
 
 @Repository
 @Transactional
 public class CourseRepository {
 
+	private Logger logger = LoggerFactory.getLogger(CourseRepository.class);
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -77,6 +82,36 @@ public class CourseRepository {
 		List<Course> courses = query.getResultList();
 		
 		// query.executeUpdate(); // for Insert,Update, Delete
+	}
+	
+	public void addCourseWithReviews() {
+		
+		Course course = this.entityManager.find(Course.class, 1);
+		this.logger.info("reviews : {}", course.getReviews());
+		
+		Review review1 = new Review(4, "Nice Contents");
+		Review review2 = new Review(5, "Great Help!");
+		
+		course.addReview(review1);
+		review1.setCourse(course);// DB relation
+		
+		course.addReview(review2);
+		review2.setCourse(course);
+		
+		this.entityManager.persist(review1);
+		this.entityManager.persist(review2);
+		
+	}
+	
+	public void fetchCourse() {
+		Course course = this.entityManager.find(Course.class, 1);
+		this.logger.info("reviews : {}", course.getReviews());
+	}
+	
+	public void fetchCourseWithStudent() {
+		Course course = this.entityManager.find(Course.class, 1);
+		this.logger.info("Course : {}", course);
+		this.logger.info("Students : {}", course.getStudents());
 	}
 	
 }
